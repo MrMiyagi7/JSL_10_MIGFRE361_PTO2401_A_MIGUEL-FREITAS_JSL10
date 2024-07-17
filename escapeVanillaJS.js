@@ -53,8 +53,16 @@ function findIntersection(setA, setB) {
 
 async function navigateLabyrinth(directions) {
   for (let direction of directions) {
+    const li = document.createElement("li");
+    li.innerHTML = `Navigating: ${direction.step} <span class="loading-circle"></span>`;
+    document.getElementById("directions").appendChild(li);
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(`Navigating: ${direction.step}`);
+
+    const loadingCircle = li.querySelector(".loading-circle");
+    loadingCircle.remove();
+    li.innerHTML += `<span class="tick">✔️</span>`;
   }
+
   return "Congratulations! You've mastered the essentials of Vanilla JavaScript. Welcome to the world of React, where you'll build powerful and dynamic web applications. Let's dive in!";
 }
