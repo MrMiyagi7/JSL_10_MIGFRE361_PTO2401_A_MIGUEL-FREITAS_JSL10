@@ -47,7 +47,7 @@ function findIntersection(setA, setB) {
   const intersection = new Set();
   for (const element of setA) {
     if (setB.has(element)) {
-      intersectionntersection.add(element);
+      intersection.add(element);
     }
   }
   return intersection;
