@@ -22,14 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ).join(", ")}`;
   });
 
-  // 🪲 Bug: Asynchronous function ?
   document.getElementById("solveRoom3").addEventListener("click", () => {
     fetch("directions.json")
       .then((response) => response.json())
       .then((directions) => {
         navigateLabyrinth(directions).then((message) => {
-          // 🪲 Bug: Incorrect method
-          document.getElementById("room3Result").innerHTML = message;
+          document.getElementById("room3Result").textContent = message;
         });
       });
   });
@@ -55,7 +53,6 @@ function findIntersection(setA, setB) {
 
 async function navigateLabyrinth(directions) {
   for (let direction of directions) {
-    // 🪲 Bug: No delay
     new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(`Navigating: ${direction.step}`);
   }
