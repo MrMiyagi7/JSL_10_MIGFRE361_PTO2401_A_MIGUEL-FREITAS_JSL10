@@ -58,7 +58,7 @@ async function navigateLabyrinth(directions) {
     document.getElementById("directions").appendChild(li);
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
+    console.log(`${direction.step}`);
     const loadingCircle = li.querySelector(".loading-circle");
     loadingCircle.remove();
     li.innerHTML += `<span class="tick">✔️</span>`;
